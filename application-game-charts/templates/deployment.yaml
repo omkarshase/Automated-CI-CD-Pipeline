@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: application-game
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      type: application-game
+  template:
+    metadata:
+      labels:
+        type: application-game
+    spec:
+      containers:
+        - name: application-game
+          image: omrautdoc/application-game
+          ports:
+            - containerPort: 80
+              protocol: TCP
